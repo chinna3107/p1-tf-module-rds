@@ -12,8 +12,8 @@ resource "aws_security_group" "main" {
 
   ingress {
     description = "RDS"
-    from_port   =
-    to_port     =
+    from_port   = var.db_port
+    to_port     = var.db_port
     protocol    = "tcp"
     cidr_blocks = var.sg_ingress_cidr
   }
