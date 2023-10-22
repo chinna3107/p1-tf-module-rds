@@ -7,7 +7,7 @@ resource "aws_db_subnet_group" "main" {
 resource "aws_security_group" "main" {
   name        = "${local.name_prefix}-sg"
   description = "${local.name_prefix}-sg"
-  vpc_id      = var.vpc_ids
+  vpc_id      = var.vpc_id
   tags = merge(local.tags, {Name = "${local.name_prefix}-sg"})
 
   ingress {
@@ -36,6 +36,7 @@ resource "aws_rds_cluster" "main" {
   cluster_identifier      = "${local.name_prefix}-cluster"
   engine                  = var.engine
   engine_version          = var.engine_version
+  engine_family           = var.engine_family
   db_subnet_group_name    = aws_security_group.main.name
   database_name           = data.aws_ssm_parameter.database_name.value
   master_username         = data.aws_ssm_parameter.master_username.value

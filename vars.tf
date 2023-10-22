@@ -1,7 +1,6 @@
 variable "tags" {}
 variable "env" {}
 variable "subnet_ids" {}
-variable "vpc_ids" {}
 variable "sg_ingress_cidr" {}
 variable "rds_type" {}
 variable "db_port" {}
@@ -13,3 +12,4 @@ variable "preferred_backup_window" {}
 variable "skip_final_snapshot" {}
 variable "instance_count" {}
 variable "instance_class" {}
+variable "vpc_id" {}
